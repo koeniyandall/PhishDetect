@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Phishing Detector (IPQS-based)",
+    "version": "1.0",
+    "permissions": [
+      "tabs",
+      "scripting",
+      "storage"
+    ],
+    "host_permissions": [
+      "https://www.ipqualityscore.com/*",
+      "https://safebrowsing.googleapis.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["features.js"]
+      }
+    ]
+  }
